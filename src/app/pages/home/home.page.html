@@ -48,28 +48,34 @@
 
   <div class="product-slider ion-padding-start">
     <ion-slides [options]="{ slidesPerView: 'auto', zoom: false, grabCursor: true }">
-      <ion-slide *ngFor="let product of featuredProducts">
+      <ion-slide *ngFor="let brand of featuredBrands">
         <ion-col class="ion-text-left" routerLink="/item-details" routerDirection="forward">
-          <img src="{{ product.image }}" />
-          <p>${{ product.price }}</p>
-          <h6>{{ product.name }}</h6>
+          <img src="{{ brand.image }}" />
+          <h6>{{ brand.name }}</h6>
         </ion-col>
       </ion-slide>
     </ion-slides>
   </div>
 
+  <!-- <ion-item-group *ngIf="products?.length > 0">
+    <app-restaurant
+      *ngFor="let product of products"
+      [product]="product"
+      [routerLink]="['/', 'home', 'products', product.uid]">
+    </app-restaurant>
+  </ion-item-group> -->
+
   <div class="title ion-padding">
-    <h2 class="font-bold">Best Sell</h2>
+    <h2 class="font-bold">Models</h2>
     <p>See all</p>
   </div>
 
   <div class="product-slider ion-padding-start">
     <ion-slides [options]="{ slidesPerView: 'auto', zoom: false, grabCursor: true }">
-      <ion-slide *ngFor="let product of bestSellProducts">
+      <ion-slide *ngFor="let sb of subBrands">
         <ion-col class="ion-text-left" routerLink="/item-details" routerDirection="forward">
-          <img src="{{ product.image }}" />
-          <p>${{ product.price }}</p>
-          <h6>{{ product.name }}</h6>
+          <img src="{{ sb.image }}" />
+          <h6>{{ sb.name }}</h6>
         </ion-col>
       </ion-slide>
     </ion-slides>
@@ -82,10 +88,10 @@
 
   <div class="product-slider ion-padding-start">
     <ion-slides [options]="{ slidesPerView: 'auto', zoom: false, grabCursor: true }">
-      <ion-slide *ngFor="let product of bestSellProducts">
+      <ion-slide *ngFor="let product of products">
         <ion-col class="ion-text-left" routerLink="/item-details" routerDirection="forward">
           <img src="{{ product.image }}" />
-          <p>${{ product.price }}</p>
+          <p>R{{ product.price }}</p>
           <h6>{{ product.name }}</h6>
         </ion-col>
       </ion-slide>

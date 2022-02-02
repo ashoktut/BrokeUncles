@@ -8,8 +8,10 @@ import { DataService } from 'src/app/services/data.service';
 })
 export class HomePage implements OnInit {
   public categories = [];
-  public featuredProducts = [];
-  public bestSellProducts = [];
+  public featuredBrands = [];
+  public subBrands = [];
+
+  products: any[] = [];
 
   constructor(
     private data: DataService,
@@ -17,8 +19,9 @@ export class HomePage implements OnInit {
 
   ngOnInit() {
     this.categories = this.data.getCategories();
-    this.featuredProducts = this.data.getFeaturedProducts();
-    this.bestSellProducts = this.data.getBestSellProducts();
+    this.featuredBrands = this.data.getFeaturedBrands();
+    this.subBrands = this.data.getSubBrands();
+    this.products = this.data.getAllProducts();
   }
 
 }
